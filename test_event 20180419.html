@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Event</title>
+<script type="text/javascript">
+function showAns(){
+	var a = 10;
+	var b = 20;
+	window.alert(a+b);
+}
+
+function aa(){
+	document.getElementsByName("btn")[0].onclick = showAns;		
+}
+window.onload= aa;
+
+</script>
+</head>
+<body>
+
+<input type="button" name="" value="10+20=??" onclick="showAns();">	
+
+<p>
+<input type="button" name="btn" value="10+20=?">	
+
+
+<h2>keyboard event</h2>	
+<script>
+function checkNum(){   //0..9 -> 48..57
+	if(event.keyCode < 48 || event.keyCode > 57){  // keyCode = CharCode
+		event.returnValue = false;   //取消此事件的預設行為 ; 
+		//Event.returnValue 属性表示该事件的默认操作是否已被阻止。默认情况下，它被设置为true，允许发生默认操作。将该属性设置为false，可以防止默认操作。
+		// event.preventDefault();  也可
+		window.alert("請輸入數字");
+	}
+}	
+</script>
+<p>
+薪資<input type="text" name="salary" onkeypress="checkNum()">
+
+
+<p>
+<h2>firefox 不能輸入小數</h2>	
+<script language="javascript" type="text/javascript">  
+    function test(event)  
+    {  
+        if(event.charCode < 46 || event.charCode >57)  
+        {  
+            event.preventDefault();  
+        }  
+    }  
+</script>  
+<input type="text" onkeypress="test(event)"/>  
+
+<p>
+<h2>IE 不能輸入小數</h2>	
+<script language="javascript" type="text/javascript">  
+    function test()  
+    {  
+        if(event.keyCode == 46)  
+        {  
+            event.returnValue = false;   
+        }  
+    }  
+</script>
+<input type="text" onkeypress="test()"/>  	
+
+<p>
+<script language="JavaScript">
+function link1()
+{
+	if(confirm('您即將進入酷必網，確定嗎﹖'))
+	{
+		window.event.returnValue=true;
+		window.location.href="http://tw.yahoo.com/";
+	}
+	else
+	{
+		alert("此動作已經被取消");
+		window.event.returnValue=false;
+	}
+}
+</script> 
+
+<a href=# target=_self onclick="link1();">進入酷必網</a>
+
+
+<hr>
+<p>
+<script language="JavaScript">
+function link1()
+	{
+		if(confirm('您即將進入酷必網，確定嗎﹖'))
+	{
+		window.location.href="http://tw.yahoo.com/";
+	}
+	else
+	{
+		alert("此動作已經被取消");
+		return false;
+	}
+}
+</script> 
+
+<a href=# target=_self onclick="link1();">進入酷必網</a>
+
+<style type="text/css">
+	table{
+		border-collapse: collapse;
+		margin: auto;
+	}
+	tr,td{
+		border: 1px solid #000;
+	}
+	td{
+		width: 30px;
+		text-align: center;
+	}
+</style>
+<!-- onmouseover="highLight()" onmouseout="normal()" -->
+<table >
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+		<td>6</td>
+		<td>7</td>
+	</tr>
+	<tr>
+		<td>21</td>
+		<td>22</td>
+		<td>23</td>
+		<td>24</td>
+		<td>25</td>
+		<td>26</td>
+		<td>27</td>
+	</tr>
+	<tr>
+		<td>31</td>
+		<td>32</td>
+		<td>33</td>
+		<td>34</td>
+		<td>35</td>
+		<td>36</td>
+		<td>37</td>
+	</tr>
+</table>
+
+<script>
+	function highLight(){
+		// var obj = document.gelElementById("td11");
+		obj = event.srcElement;  //取得物件的參考
+		obj.style.color = "blue";
+		obj.style.backgroundColor = "pink";
+	}
+
+	function normal(){
+		// var obj = document.gelElementById("td11");
+		obj = event.srcElement  //取得物件的參考
+		obj.style.color = "black";
+		obj.style.backgroundColor = "white";
+	}
+
+	function init(){
+		var objs = document.getElementsByTagName("td");	
+		for(var i=0; i<objs.length; i++){
+			objs[i].onmouseover = highLight;
+			objs[i].onmouseout = normal;
+		}
+	}
+	window.onload = init;
+</script>
+
+<hr>	
+<p>Welcome to JavaScript~~Body</p>
+<p>Welcome to JavaScript~~Body</p>
+<p>Welcome to JavaScript~~Body</p>
+<form onclick="window.alert('form被點按')">	
+	<p>Welcome to JavaScript~~Form</p>
+	<p>Welcome to JavaScript~~Form</p>
+	<p>Welcome to JavaScript~~Form</p>
+	<input type="button" name="btn" value="click me" 
+	onclick="window.alert('button被點按');window.event.cancelBubble = true;">
+	<!--window.event.cancelBubble 設定或取消事件的傳遞 (window可省略)-->
+</form>
+</body>
+</html>

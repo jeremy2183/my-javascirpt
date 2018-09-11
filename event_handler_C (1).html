@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>event handler Examples</title>
+<script>
+function showAns(){
+	var a=10; 
+	var b=20; 
+	window.alert(a+b);
+}
+
+function noAns(){
+	window.alert("不告訢你 ><");
+}
+
+function forFun(){
+	var btns = document.getElementsByName("btn");
+	btns[2].removeEventListener("click", forFun, false);
+	window.alert("^____________^");
+}
+
+function init(){
+	var btns = document.getElementsByName("btn");
+	btns[1].onclick=showAns;
+	btns[1].onclick=noAns;
+
+	btns[2].addEventListener("click", showAns, false);
+	btns[2].addEventListener("click", forFun, false);	
+}
+
+window.onload = init;
+// window.addEventListener("load", init, false);
+</script>
+</head>
+<body>
+
+<input type="button" name="btn" value="10+20=?" onClick="showAns();">  
+<input type="button" name="btn" value="10+20=?">
+<input type="button" name="btn" value="10+20=?">
+
+
+</body>
+</html>

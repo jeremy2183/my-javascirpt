@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+var arr = new Array(11,22,33);
+
+[a,b,c,d] = arr;
+document.write("a:" ,a, "<br>");
+document.write("b:" ,b, "<br>");
+document.write("c:" ,d, "<br>");
+document.write("a:" ,a, "<br>");
+
+var obj = {empno: "7839", ename: "king"};
+({empno, ename} = obj);
+document.write("empno:", empno,"<br>");
+document.write("ename:", ename,"<br>");
+
+//rest parameter
+var numbers = new Array(11,22,33,44,55,66);
+[a, ...arr] = numbers;
+console.log(typeof a);
+console.log(typeof arr);
+document.write("a:", a ,"<br>");
+document.write("arr:", arr.join("#") ,"<br>");
+
+//解構後傳給參數
+function sum(a,b,c){
+	return a+b+c;
+}
+document.write("sum:", sum(1,2,3), "<br>");
+
+var arr = new Array(100,200,300);
+document.write("sum:" , sum(...arr), "<br>");//展開
+
+</script>	
+</body>
+</html>

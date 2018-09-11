@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>bubble</title>
+<style>
+form {background-color:#FFC}
+</style>
+</head>
+<body id="myBody">
+<p>11111111</p>    
+<p>11111111</p>
+<p>11111111</p>
+<form id="myForm" >
+	<p>這裡是表單</p>
+	<p>這裡是表單</p>
+	<p>這裡是表單</p>
+	<input id="btn" type="button" value="click me">
+	<p>這裡是表單</p>
+	<p>這裡是表單</p>
+	<p>這裡是表單</p>
+</form>
+<script>
+function myBody_click(){
+  window.alert('body 被按');
+}
+
+function myForm_click(){
+  window.alert('form 被按');
+}
+
+function btn_click(){
+  window.alert('btn 被按');
+  //取消事件向外傳遞的現象
+  
+}
+
+//使用javaScript程式碼的註冊方法，
+//可以使用事件處理程序中的第一個參數抓到事件訊息包
+
+
+</script>
+</body>
+</html>

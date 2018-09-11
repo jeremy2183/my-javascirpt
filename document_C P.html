@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+</head>
+<body>
+<div>
+現在位置：<span id="curPos">??????</span>
+</div>
+<br>
+
+搜尋 <input type="text" name="sData"><br><br>
+
+<script type="text/javascript">
+var obj = document.getElementById("curPos");
+obj.innerHTML = "首頁>><b><i>會員專區</i></b>";
+obj.style.color="deeppink";
+obj.style.fontSize="30px";
+obj.style.borderBottom="1px solid";
+
+var objs = document.getElementsByName("sData");
+objs[0].placeholder = "請輸入關鍵字";
+objs[0].style.borderRadius="5px";
+
+
+	
+</script>
+</body>
+</html>

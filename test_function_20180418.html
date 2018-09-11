@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>pratice</title>
+</head>
+<body>
+<h2>全域函數: eval()</h2>
+<script type="text/javascript">
+var str = "var a=10; var b=20; document.write('a+b=',a+b,'<br>')";
+eval(str);
+
+</script>
+
+<h2>全域函式: isNaN()</h2>
+<script type="text/javascript">
+var age = "36";
+document.write("不是一個數值性的資料嗎？",isNaN(age),"<br>");  //false
+
+var age = "abc";
+document.write("不是一個數值性的資料嗎？",isNaN(age));  //true
+
+</script>
+
+<h2>區域變數與全域變數</h2>
+<script type="text/javascript">
+var a = 10;  //全域
+b = 20;  //全域
+function f1(x){
+  var c = 30;  //因為有var，所以是為區域
+  c = c + 100;
+  d = 40;   //全域
+  d = d + 100;
+  a = a + 100;
+}
+f1(666);
+document.write("a：", a, "<br>");   // a : 110
+document.write("b：", b, "<br>");   // b : 20
+document.write("d：", d, "<br>");   // d : 140
+// document.write("c：", c, "<br>");  
+// document.write("x：", x, "<br>");   
+</script>
+
+
+<script>
+function sum(){
+	total = 0;   //全域變數
+	for(var i=0; i<arguments.length; i++){
+		total = total + arguments[i];
+	}
+	return total;
+}	
+</script>
+
+<h2>全域變數 與 區域變數.....有這麼重要嗎？？(錯誤計設案例)</h2>
+<script>
+var subTotal=0 , total=0;
+
+//客戶一消費金額:
+subTotal = sum(10,20);
+total = total + subTotal;
+document.write("客戶一消費金額：", subTotal, "<br>");
+
+//客戶二消費金額:
+subTotal = sum(100,200,300);
+total = total + subTotal;
+document.write("客戶二消費金額：", subTotal, "<br>");
+
+//販賣總金額:
+document.write("販賣總金額：", total, "<br>");
+</script>
+
+
+<hr>
+<script>
+function sum(){
+	var total = 0;   //區域變數
+	for(var i=0; i<arguments.length; i++){
+		total = total + arguments[i];
+	}
+	return total;
+}	
+</script>
+
+<h2>全域變數 與 區域變數.....有這麼重要嗎？？(正確計設案例)</h2>
+<script>
+var subTotal=0 , total=0;
+
+//客戶一消費金額:
+subTotal = sum(10,20);
+total = total + subTotal;
+document.write("客戶一消費金額：", subTotal, "<br>");
+
+//客戶二消費金額:
+subTotal = sum(100,200,300);
+total = total + subTotal;
+document.write("客戶二消費金額：", subTotal, "<br>");
+
+//販賣總金額:
+document.write("販賣總金額：", total, "<br>");
+</script>
+
+<script type="text/javascript">
+var a = 10;
+b = 20;
+function func(a,b){
+  a = 100;
+  b = 200;
+  c = a + b;
+  a *= 2;
+  b += 2;
+  return;
+}
+func(a,b);
+document.write( "b= ", b);	
+</script>
+</body>
+</html>

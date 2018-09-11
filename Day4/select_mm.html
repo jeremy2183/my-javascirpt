@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+</head>
+<body>
+入會月份
+<select id="mm">
+</select>
+<script type="text/javascript">
+function $id(id){
+  return document.getElementById(id);
+}
+
+var mm = $id("mm");
+for( var i=1; i<=12; i++){
+	var text = i + "月";
+	var value = i;
+	var opt = new Option(text, value);
+	mm.add(opt);
+}
+mm.selectedIndex = new Date().getMonth();
+
+</script>
+</body>
+</html>

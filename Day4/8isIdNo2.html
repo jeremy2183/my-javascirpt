@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Document</title>
+<style type="text/css">
+	
+</style>
+</head>
+
+<body>
+    <p>身分證字號</p>
+    <input type="text" name="idInput">
+    <button type="submit" id="btn">確認</button>
+
+	<script type="text/javascript">
+		
+		function verify(){
+			var idstr = document.getElementsByName("idInput")[0].value
+			var idlength = idstr.length;
+			var secondCode = idstr.substr(1,1);
+			var firstCode = idstr.charCodeAt(0);
+			var eachCode = idstr.split("");
+			
+			if(firstCode==73)
+				var firstCodeNum = 34;
+			else if (firstCode==79)
+				var firstCodeNum = 35;
+			else if (firstCode==87)
+				var firstCodeNum = 32;
+			else 
+				var firstCodeNum = firstCode-55;
+			var sum=0;
+			for (var i=1; i<9; i++){
+				sum += eachCode[i]*(9-i)
+			}
+			var x = String(firstCodeNum);
+			var eachX= x.split("");
+			sum += eachX[0]*1 + eachX[1]*9;
+			if (sum%10 ==0){
+				var remainder = 0;
+			}else 
+				var remainder = (10-sum%10);
+
+
+			alert("長度:"+idlength);
+			alert("第一碼的ASCII:"+firstCode);
+			alert("總和:"+sum);
+			alert("第一碼的身分證數字:"+firstCodeNum);
+			alert("末碼:"+remainder);
+
+
+			if(idlength!=10){
+				alert("長度錯誤");
+			}
+			else if (secondCode!=1 && secondCode!=2){
+				alert("第二碼錯誤");
+			}
+			else if (firstCode<65 || firstCode>122){
+				alert("錯誤");
+			}
+			else if (firstCode>90 && firstCode<97){
+				alert("錯誤");
+			}
+			else if (remainder != eachCode[9]){
+				alert("末碼錯誤");
+			}
+			else  
+				alert("成功");
+		}
+
+		document.getElementById("btn").onclick = verify;
+
+	</script>
+</body>
+
+</html>
+

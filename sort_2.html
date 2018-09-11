@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+</head>
+<body>
+
+<h2>sort()</h2>
+<script type="text/javascript">
+var arr = new Array("This is a book", "This", "is", "a", "book");
+
+arr.sort( );  //
+for( var i=0; i<arr.length; i++){
+	document.write( i, " : ", arr[i], "<br>" ); 
+}
+</script>  
+
+
+<h2>使用compareFunction</h2>
+<script type="text/javascript">
+var arr = new Array("This is a book", "This", "is", "a", "book");
+
+function myCompare(a, b){
+	return  b.length-a.length;    //14-4 > 10
+}
+
+arr.sort( myCompare );  //
+for( var i=0; i<arr.length; i++){
+	document.write( i, " : ", arr[i], "<br>" ); 
+}
+</script>  
+</body>
+</html>

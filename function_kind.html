@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// var res = {
+	// 	msg:(function(){
+	// 		// return "test";
+	// 		alert("test");
+	// 		}())
+	// 	}
+	// alert(res.msg);
+
+
+	// var house = new Object();
+	// 	house.color = "white";
+	// 	house.doors = 6;
+	// 	house.room = 7;
+	// 	house.doorNum = function(){
+	// 	  alert(this.room);
+	// 	}
+	// house.doorNum();  //7
+
+
+	// var res = {
+	// 	room : 4,
+	// 	msg : function(){
+	// 		alert(this.room);
+	// 		}
+	// 	}
+	// res.msg();  //4
+
+// ----------------------------------
+
+	var Person = function(name){
+	  this.name = name;
+	  // this.say = function() {
+	  //   return "I am " + this.name;
+	  // };   //浪費效能，佔較多記憶體
+
+	  Person.prototype.say = function() {  //建立在物件原型裡
+		  return "I am " + this.name;
+		};      //效能較好，節省記憶體
+
+	}
+
+	//建立
+	var adam = new Person('Adam');
+	alert(adam.say()); // "I am Adam"	
+
+// ----------------------------------
+
+	</script>
+</body>
+</html>

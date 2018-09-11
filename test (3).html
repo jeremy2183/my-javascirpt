@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>mouse event</title>
+</head>
+<body>
+<div id="showPanel"></div>
+<script type="text/javascript">
+function showTime(){
+	var today = new Date();
+	document.getElementById("showPanel").innerHTML = today.getHours() + " : " + today.getMinutes() + " : " + today.getSeconds();
+	setInterval('showTime()',1000);
+}
+window.onload =showTime;
+</script>   
+</body>
+</html>

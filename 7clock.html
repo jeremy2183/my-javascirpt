@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="showPanel"></div>
+<script type="text/javascript">
+
+function time(){
+var today = new Date();	
+var nowtime = today.getHours() + " : " + today.getMinutes() + " : " + today.getSeconds();
+	
+	document.getElementById("showPanel").innerHTML = "現在時間" + nowtime;
+	timerId = setTimeout(time,1000); // 無限迴圈
+}
+function init(){
+	time();
+	// timerId = setInterval(time,1000);
+	// timerId = setTimeout(time,1000); //只做一次
+}
+
+window.onload = init;
+</script>	
+</body>
+</html>

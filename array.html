@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+
+</head>
+<body>
+<script type="text/javascript">
+var arr = new Array(11,22,33);
+var i=0;
+
+arr[6] = 800;
+for( i=0; i<arr.length ; i++){
+	document.write( arr[i] , "<br>" );
+}
+</script> 
+
+<h2>for( i in 物件變數)</h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33);
+var i=0;
+
+arr[6] = 800;
+for( i in arr){
+	document.write( i , " : ", arr[i], "<br>" );
+}
+</script>   
+
+<h2>陣列變數的指定</h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33);
+var i=0;
+
+var arr2 = arr; 
+arr2[1] = 100;
+for( i in arr){
+	document.write( i , " : ", arr[i], "<br>" );
+}
+</script>
+
+<h2>toString() , join( 符號字串)</h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33);
+document.write( arr.toString() , "<br>" );
+document.write( arr.join("@") , "<br>" );
+document.write( arr , "<br>" ); //arr.toString()
+</script> 
+
+<h2>indexOf()</h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33,44,22);
+
+document.write( arr.indexOf(22) , "<br>" );  //1
+document.write( arr.indexOf(22,0) , "<br>" );   //1
+document.write( arr.indexOf(22,2) , "<br>" );   //4
+document.write( arr.indexOf(222,0) , "<br>" );  //-1
+</script> 
+
+<h2>push() , pop()</h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33);
+arr[arr.length]=100;
+arr.push(200);
+document.write( arr , "<br>" ); //11,22,33,100,200  
+var data = arr.pop();   //刪除陣列最後一個元素
+document.write( arr , "<br>" ); //11,22,33,100
+document.write("pop出資料: " , data ,"<br>");
+</script>
+
+<h2>shift() , unshift()</h2>
+<script type="text/javascript">
+var arr = new Array(11,22,33);
+arr.unshift(200);  //添加到陣列的開頭
+document.write( arr , "<br>" ); //200,11,22,33  
+
+var data = arr.shift();    //刪除陣列第一個元素
+document.write( arr , "<br>" ); //11,22,33
+document.write("pop出資料: " , data ,"<br>"); //200
+</script>
+
+<h2>sort()</h2>
+<script type="text/javascript">
+var arr = new Array(40, 20, 50, 70, 30, 80, 7);
+arr.sort();
+document.write( arr , "<br>" );  
+</script>
+
+<h2>自己排</h2>
+<script type="text/javascript">
+var arr = new Array(40, 20, 50, 70, 30, 80, 7);
+// 20,40,50,30,70,7,80    i=0  j=1
+// 20,40,30,50,7,70,80    i=1  j=2
+// 20,30,40,7,50,70,80    i=2  j=3
+// 20,30,7,40,50,70,80    i=3  j=4
+// 20,7,30,40,50,70,80    i=4  j=5
+// 7,20,30,40,50,70,80    i=5  j=6
+
+var temp; //空容器
+for( var i=0; i<6; i++){
+	for(var j=i+1; j<=6; j++){
+		if( arr[j] < arr[i]){
+			temp = arr[j];
+			arr[j] = arr[i];
+			arr[i] = temp;
+		}
+	}
+}
+document.write( arr , "<br>" );  
+
+document.write("小到大:" + arr.sort(function(a,b){return a-b}),"<br>");
+// document.write(arr.reverse());  //相反
+document.write("最小值:" + arr[0],"<br>");
+document.write("大到小:" + arr.sort(function(a,b){return b-a}),"<br>");
+document.write("最大值:" + arr[0]);
+
+</script>
+</body>
+</html>

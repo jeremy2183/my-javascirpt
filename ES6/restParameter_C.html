@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+</head>
+
+<body>
+<h2>從前...</h2>
+<script type="text/javascript">
+//商品要調漲，請給一個調漲的百分比(rate), 高過某一個價錢(high)的商品其價錢不變  
+function adjust( rate, high, priceArr){
+  for(var i=0; i<priceArr.length; i++){
+  	if( priceArr[i]<high){
+  		priceArr[i]+=Math.floor(priceArr[i] * rate);
+  	}
+  }
+  return priceArr;
+}
+
+var prices = new Array(100,230,700,800,1500,1600);
+prices = adjust( 0.01, 1000, prices);
+document.write( prices , "<br>");
+</script>  
+
+<h2>ES6...</h2>
+<script type="text/javascript">
+//商品要調漲，請給一個調漲的百分比(rate), 高過某一個價錢(high)的商品其價錢不變  
+function adjust( rate, high, ...priceArr){
+  for(var i=0; i<priceArr.length; i++){
+  	if( priceArr[i]<high){
+  		priceArr[i]+=Math.floor(priceArr[i] * rate);
+  	}
+  }
+  return priceArr;
+}
+
+prices = adjust( 0.01, 1000, 100, 230, 700, 800, 1500, 1600);
+document.write( prices , "<br>");
+</script> 
+
+ 
+</body>
+</html>

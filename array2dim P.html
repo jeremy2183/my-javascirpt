@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+			
+	</style>
+</head>
+<body>
+<script type="text/javascript">
+	var arr = new Array( new Array(1,2,3,4,5,6),new Array(21,22,23),new Array(31,32,33));
+	document.write("<table>");
+	for (var i=0;i<arr.length; i++){
+		document.write("<tr>");
+		for(var j=0;j<arr[i].length;j++){
+			document.write("<td>" ,arr[i][j], "</td>");
+		}
+		document.write("</tr>");
+
+	}
+	document.write("</table>");
+
+
+
+
+</script>
+</body>
+</html>

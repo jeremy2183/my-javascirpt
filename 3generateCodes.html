@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+</head>
+<body>
+	<script type="text/javascript">
+		var j;
+		var x = Math.floor(Math.random()*4)+4;
+		for(var i=1; i<=x ; i++){
+			var R = Math.floor(Math.random()*256);
+			var G = Math.floor(Math.random()*256);
+			var B = Math.floor(Math.random()*256);
+			var color = "rgb("+R+","+G+","+B+")";			
+			var j = Math.random()*10;
+			document.write("<p style='color:",color,";'>",Math.floor(j),"<br>");
+		}
+    </script>
+	
+</body>
+</html>

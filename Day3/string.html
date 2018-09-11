@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+</head>
+<body>
+<script type="text/javascript">
+var str = "abcdeabcde";
+document.write("length : ", str.length, "<br>");
+document.write("toUpperCase() : ",str.toUpperCase(), "<br>");
+document.write("indexOf('cd') : ", str.indexOf('cd') , "<br>");//2
+document.write("indexOf('cdc') : ",str.indexOf('cdc')  , "<br>");//-1
+
+document.write("lastIndexOf('cd') : ",str.lastIndexOf('cd') , "<br>");//7
+document.write("lastIndexOf('cdc') : ",str.lastIndexOf('cdc')  , "<br>");//-1
+
+document.write("match('cd') : ",str.match('cd')  , "<br>");//cd
+document.write("match('cdc') : ",str.match('cdc')  , "<br>");//null
+
+document.write("charAt(3) : ",str.charAt(3)  , "<br>");//d
+document.write("charCodeAt(3) : ",str.charCodeAt(3) , "<br>");//100
+
+
+document.write("substr(3,5) : ",str.substr(3,5)  , "<br>");//deabc
+document.write("substring(3,5) : ",str.substring(3,5)   , "<br>");//de
+
+document.write("replace('de','QQQ') : ",str.replace('de',"QQQ")   , "<br>");//deabc
+
+str = "aa,bb,cc:dd,ee,ff";
+var arr = str.split(",");
+for(var i=0; i <arr.length ; i++){
+	document.write( i,"：", arr[i].fontcolor("deeppink").italics().bold() ,"<br>");
+}
+
+str = "abcdeabcde";
+var arr = str.split("");
+for(var i=0; i <arr.length ; i++){
+	document.write(i,"：", arr[i].fontcolor("blue").italics().bold(),"<br>");
+}
+
+</script>    
+</body>
+</html>

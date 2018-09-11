@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	請輸入身份證字號<input type="text" id="idkey" name="">
+	<input type="submit" id="check" name="" value="確定">
+
+
+
+<script type="text/javascript">
+
+	function $id(id){
+		  return document.getElementById(id);
+		}
+
+	function checkId(){
+		var c1,c2,s,total;
+		var chkid = "0123456789ABCDEFGHJKLMNPQRSTUVXYWZIO";
+		c1=c2=total=0;
+
+		var idkey = $id("idkey");
+		var str = idkey.value;
+
+		if(idkey.value.length != 10){
+			window.alert("長度不正確")
+			return false;
+		}
+
+		str= str.toUpperCase();
+		c1 = chkid.indexOf(str.charAt(0));
+		c2 = chkid.indexOf(str.charAt(1));
+		if (c1<10){
+			window.alert("首字字元不正確");
+			return false;
+		}
+
+		if (c2<1 || c2>2){
+			window.alert("性別欄不正確！");		
+			return false;		
+		}
+
+		//檢查第3~第10個字元
+		var c;
+		for(var n=2; n<=9; n++){
+			c=chkid.indexOf(str.charAt(n));
+			if(c>9 || c<0){
+				window.alert("字元不正確！");
+				return false;
+			}
+		}
+
+		total = c1/10 + (c1%10)*9; //首字字元的加權值
+
+		//total=total+其他字元的加權值
+		for(var n=1; n<9; n++){
+			total += chkid.indexOf(str.charAt(n))*(9-n);
+		}
+		total += chkid.indexOf(str.charAt(9));
+
+		if(total%10 != 0)
+			window.alert("不是身分證字號");
+		else 
+			window.alert("是身分證字號");
+
+
+	}
+
+	function init(){
+		$id("check").onclick = checkId;
+	}
+
+	window.onload = init;
+		
+</script>
+
+
+</body>
+</html>

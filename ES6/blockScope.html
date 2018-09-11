@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>constant</title>
+</head>
+
+<body>
+<h2> var 有hoist的現象  </h2>  
+<script type="text/javascript">
+
+document.write('mm : ' , mm ,"<br>");
+var mm=10;
+</script>
+
+
+<h2> let 没有hoist的現象  </h2>  
+<script type="text/javascript">
+document.write('nn：', nn , "<br>");
+let nn = 100;
+</script>
+
+<h2> var 可重複宣告  </h2>  
+<script type="text/javascript">
+var aa = 10;
+
+var aa = 100;
+document.write('aa：', aa , "<br>");
+</script>
+
+<h2> let 不可重複宣告  </h2>  
+<script type="text/javascript">
+let bb = 20; 
+bb = 2000;
+// let bb = 200; // error 不可重複宣告
+document.write('bb：', bb , "<br>");
+</script>
+
+<h2> var 没有區塊性的作用範圍 </h2>  
+<script type="text/javascript">
+var total = 0;
+
+for( var i=1; i<=10; i++){
+	total += i;
+}
+
+document.write('i : ' , i ,"<br>"); 
+document.write('total : ' , total ,"<br>"); 
+</script>
+
+<h2>ES6 : for句型中的let作用範圍</h2>  
+<script type="text/javascript">
+var total2 = 0;
+
+let j =100;
+for (let j=1; j<=10; j++){
+	total2 += j; 
+}
+
+document.write('j：', j , "<br>");
+document.write('total2：', total, "<br>");
+</script>
+
+<!-- <hr>
+<h2>ES6 : 敍述區塊中的let可以有自己的作用範圍</h2>  
+<script type="text/javascript">
+
+</script> -->
+
+
+
+</body>
+</html>

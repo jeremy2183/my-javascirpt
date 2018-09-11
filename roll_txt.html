@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+</head>
+<body>
+
+<script type="text/javascript">
+/*	
+設計外觀(id怎麼設)
+
+註冊button
+
+決定跑幾次(loop = 24~45 , counter 初值給0)
+
+啟動setTimeout(註:speed=??)
+
+
+在setTimeout的函式中,
+  (1)先還原前一個格位的顏色(注意i的初值)
+    document.getElementById(i).style.backgroundColor = "white";
+
+  (2) 再把目前這一個格位點亮
+	  i++;
+	  i = i % 12;
+	  document.getElementById(i).style.backgroundColor = "gold";
+	  增加已跑的次數(counter)
+  (3)再呼叫setTimeout的函式
+  		if( counter<loop ){
+				注意: 調整速度(speed + 100 )
+				才呼叫setTimeout的函式
+        }
+    
+           
+*/	
+</script>    
+</body>
+</html>

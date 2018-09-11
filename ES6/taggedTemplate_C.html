@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>defaultValue</title>
+</head>
+
+<body>
+
+<h2>從前...</h2>
+<script type="text/javascript">
+//給定所購買的商品名稱，價格, 數量。
+//若總計超過500元，則可以取得紅利點數，100元可以換得1點  
+var prodName = '小丸子快樂上學去公宅';
+var price = 100;
+var amount = 20;
+
+function showMsg(prodName, price, amount) {
+  var total = price * amount;
+  var bonus = total>=500 ? Math.floor(total*0.01) : 0;
+  var str = "交易資料如下:<br>品名: " + prodName + "<br>" +
+            "單價: " + price + "元<br>" +
+            "數量: " + amount + "<br>" +
+            "<br>總計: " +  total +"元<br>紅利: " + bonus + "點";
+  return str;
+}
+
+
+document.write( showMsg(prodName, price, amount));
+</script>
+
+
+<h2>可使用標籤函數來套用樣版(tagged template) ???</h2>
+<script type="text/javascript">
+var prodName = '小丸子快樂上學去公宅';
+var price = 100;
+var amount = 20;
+
+function showMsg(strings, prodName, price, amount) {  
+//["交易資料如下:<br>品名: "," <br> 單價: "," 元<br>數量: ", <br>]
+  var total = price * amount;
+  var bonus = total>=500 ? Math.floor(total*0.01) : 0;
+  if( bonus > 0){
+	  var str = `${strings[0]} ${prodName} ${strings[1]} ${price} ${strings[2]} ${amount} ${strings[3]}
+	  總計: ${total} 元<br>紅利: ${bonus} 點`;  	
+  }else{
+	  var str = `${strings[0]} ${prodName} ${strings[1]} ${price} ${strings[2]} ${amount} ${strings[3]}
+	  總計: ${total} 元<br>`;
+  }
+
+  return str;
+}
+
+var msg = showMsg `交易資料如下:<br>品名: ${prodName} <br>
+            單價: ${price} 元<br>
+            數量: ${amount} <br>`;
+document.write( msg  , "<hr>");
+
+
+
+
+
+var prodName = 'ruler';
+var price = 10;
+var amount = 20;
+
+var msg = showMsg `交易資料如下:<br>品名: ${prodName} <br>
+            單價: ${price} 元<br>
+            數量: ${amount} <br>`;
+document.write( msg.fontcolor("blue") );
+</script>
+<!-- 
+
+-->
+</body>
+</html>

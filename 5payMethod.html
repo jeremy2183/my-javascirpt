@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h2 align="center">確認定單</h2>
+	<table border="1" align="center" width="500px">
+		<tr>
+			<th>
+				收件人姓名
+			</th>
+			<td>
+				<input type="text" name="memName">
+			</td>
+		</tr>
+		<tr>
+			<th>
+				收件人地址
+			</th>
+			<td>
+				<input type="text" name="memId">
+			</td>
+		</tr>
+		<tr>
+			<th rowspan="4">
+				付款方式
+			</th>
+			<td>
+				<label><input type="radio" name="pay" value="cash" id="Cash">現金</label>
+				<label><input type="radio" name="pay" value="card" id="Card">信用卡</label>
+				<label><input type="radio" name="pay" value="atm" id="ATM">ATM轉帳</label>
+					<tr>
+						<td style="display: none;" id="credit1">信用卡號碼：<input type="text" name="card"></td>
+						<td style="display: none;" id="bank1">銀行代號<input type="text" name="bancode"></td>
+					</tr>
+					<tr>
+						<td style="display: none;" id="credit2">到期年月：<input type="text" name="time"></td>
+						<td style="display: none;" id="bank2">帳號扣款<input type="text" name="idpay"></td>
+					</tr>
+			</td>
+		</tr>
+
+	</table>
+
+
+			
+
+
+<script type="text/javascript">
+	
+var aa = document.getElementById("credit1");
+var bb = document.getElementById("bank1");
+var cc = document.getElementById("credit2");
+var dd = document.getElementById("bank2");
+function noShow(){
+	aa.style.display = "none";
+	bb.style.display = "none";
+	cc.style.display = "none";
+	dd.style.display = "none";
+}
+
+function showATM(){
+	aa.style.display = "block";
+	bb.style.display = "none";
+	cc.style.display = "block";
+	dd.style.display = "none";
+}
+
+function Credit(){
+	aa.style.display = "none";
+	bb.style.display = "block";
+	cc.style.display = "none";
+	dd.style.display = "block";
+}
+
+	document.getElementById("Cash").onclick = noShow;
+	document.getElementById("Card").onclick = showATM;
+	document.getElementById("ATM").onclick = Credit;
+
+</script>
+</body>
+</html>

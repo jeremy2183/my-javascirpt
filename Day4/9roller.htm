@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Document</title>
+<style type="text/css">
+	table {
+		margin:100px;
+
+	}
+	table, td {
+		border:2px solid #000;
+	}
+	td {
+		width: 200px;
+		height: 200px;
+		font-size: 50px;
+		color: yellow;
+	}
+	button {
+		margin-left: 100px;
+	}
+</style>
+</head>
+
+<body>
+    <table>
+    	<tr>
+    		<td id="0"></td>
+    		<td id="1"></td>
+    		<td id="2"></td>
+    		<td id="3"></td>
+    	</tr>
+    	<tr>
+    		<td id="11"></td>
+    		<td colspan="2" rowspan="2"></td>
+    		<td id="4"></td>
+    	</tr>
+    	<tr>
+    		<td id="10"></td>
+    		<td id="5"></td>
+    	</tr>
+    	<tr>
+    		<td id="9"></td>
+    		<td id="8"></td>
+    		<td id="7"></td>
+    		<td id="6"></td>
+    	</tr>
+    </table>
+    <input type="button" id="btn" name="" value="抽獎">
+
+
+
+
+	
+	
+
+	<script type="text/javascript">
+		
+		function stepNum(){
+			var result =  20 +Math.floor(Math.random()*26);
+			return result;
+		}
+
+
+		function startLottery(){
+			document.getElementById("btn").disabled=true;
+			for(var i=0; i<13; i++){
+				document.getElementsByTagName("td")[i].innerHTML = "";
+				document.getElementsByTagName("td")[i].style.backgroundColor = "#fff";
+			}	
+			var a = stepNum();
+			var b = a%12;
+			var j = 0;
+			function changeColor(){
+				if(j<a){
+					j++;
+					document.getElementById(j%12).style.backgroundColor = "#f00";
+					document.getElementById((j-1)%12).style.backgroundColor = "#fff";
+				}
+				else {
+					document.getElementById(b).innerHTML = a*100;
+					document.getElementById("btn").disabled=false;
+					clearInterval(timeId1);
+				}
+			}
+			var timeId1 = setInterval(changeColor,50);
+		}
+			
+
+
+		function init(){
+			document.getElementById("btn").onclick = startLottery;
+		}
+			
+		window.onload = init;
+	</script>
+
+</body>
+
+</html>

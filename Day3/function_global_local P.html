@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<h2>example 1</h2>
+<script type="text/javascript">
+var a;
+a=10;
+var b=20;
+c=30;
+
+d=888;
+
+
+function test(mm){
+	var d=40;
+	a+=100;
+	d+=100;
+	e=50;
+}
+
+test(11);
+
+document.write("a: " , a , "<br>");
+document.write("b: " , b , "<br>");
+document.write("c: " , c , "<br>");
+document.write("d: " , d , "<br>");
+document.write("e: " , e , "<br>");
+
+</script>
+
+
+
+
+<script type="text/javascript">
+function sum( a, b, c){  //a:10 , b:20 ,c:undefined
+	total = 0;   //total,i , 没有宣告，所以會往外找，產生在全域變數        
+	for(i=0; i<arguments.length; i++){
+ 		total += arguments[i];
+	}
+	return total;
+}
+
+var i = 1000;  //i : 2  total:0
+document.write("10+20+30 = " , sum(10, 20 , 30) ,"<br>");
+document.write( "i : " , i , "<br>");	
+
+
+</script>	
+</body>
+</html>

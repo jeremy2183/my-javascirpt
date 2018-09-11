@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+</head>
+<body>
+<h2>自己排</h2>
+<script type="text/javascript">
+var arr = new Array(40, 20, 50, 70, 30, 80, 7);
+var temp;
+for( var i=0; i<6; i++){
+	for(var j=i+1; j<=6; j++){
+		if( arr[j] < arr[i]){
+			temp = arr[j];
+			arr[j] = arr[i];
+			arr[i] = temp;
+		}
+	}
+}
+document.write( arr , "<br>" );  
+</script>    
+
+<h2>使用compareFunction</h2>
+<script type="text/javascript">
+var arr = new Array(40, 20, 50, 70, 30, 80, 7);
+
+function myCompareAsc(a, b){// 20 50
+	return a-b;  //<0 , a在比較低的索引位置 
+	             //>0 , a在比較高的索引位置 
+}
+
+arr.sort( myCompareAsc );  //20 40 50
+document.write( arr , "<br>" );  
+</script>  
+
+<h2>使用compareFunction</h2>
+<script type="text/javascript">
+//<0 , a在比較低的索引位置
+ //>0 , a在比較高的索引位置 	
+
+var arr = new Array(40, 20, 50, 70, 30, 80, 7);
+function myCompareDesc(a, b){// 40 , 50  ,50-40..10  50,40
+	return b-a;               
+}
+arr.sort( myCompareDesc );  //50 40
+document.write( arr , "<br>" );  
+</script>  
+</body>
+</html>

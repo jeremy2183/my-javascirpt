@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+<h2>自動轉型</h2>
+<script type="text/javascript">
+var price="20";
+var amount="30";
+var ship="80";
+var subTotal = price * amount; //600
+var total = subTotal + ship;
+document.write("小計：", subTotal,"<br>");
+document.write("總計：", total, "<br>" );
+</script>
+
+<h2>強制轉型</h2>
+<script type="text/javascript">
+var price="20";
+var amount="30";
+var ship=parseInt("80");
+var subTotal = price * amount; //600
+var total = subTotal + ship;
+document.write("小計：", subTotal,"<br>");
+document.write("總計：", total, "<br>" );
+</script>
+
+<h2>強制轉型2</h2>
+<script type="text/javascript">
+var a="321abc";
+document.write( parseInt(a),"<br>"); //10
+document.write( parseInt(a,16),"<br>"); //3283644
+document.write( parseInt(a,8),"<br>"); //209
+document.write( parseInt(a,2),"<br>"); // Not a Number 
+
+
+
+</script>
+
+
+</body>
+</html>

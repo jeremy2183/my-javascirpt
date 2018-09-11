@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.box1{
+			display: flex;
+			margin: 5px 5px 0;
+		}
+		.item{
+			margin: 5px 5px 0;
+			outline: 1px solid #000;
+			height: 100px;
+			width: 100px;
+			line-height: 100px;	
+		}
+		.box2{
+			margin: 5px 5px 0;
+			width: 440px;
+			display: flex;
+			justify-content: space-between;
+		}
+		.item2{
+			margin: 5px 5px 0;
+			width: 100px;
+			outline: 1px solid #000;
+			height: 100px;
+			line-height: 100px;	
+		}
+		.roll{
+			width: 440px;
+			margin-bottom: 20px;
+			text-align: center;
+		}
+		.txt{
+			height: 100px;
+			text-align: center;
+			font-size: 24px;
+		}
+	</style>
+</head>
+<body>
+	<div class="roll"><input type="button" value="搖獎" id="btn"></div>
+	<div class="box1">
+		<div class="item"><div class="txt" id="item1"></div></div>
+		<div class="item"><div class="txt" id="item2"></div></div>
+		<div class="item"><div class="txt" id="item3"></div></div>
+		<div class="item"><div class="txt" id="item4"></div></div>
+	</div>
+	<div class="box2">
+		<div class="item2"><div class="txt" id="item12"></div></div>
+		<div class="item2"><div class="txt" id="item5"></div></div>
+	</div>
+	<div class="box2">
+		<div class="item2"><div class="txt" id="item11"></div></div>
+		<div class="item2"><div class="txt" id="item6"></div></div>
+	</div>
+	<div class="box1">
+		<div class="item"><div class="txt" id="item10"></div></div>
+		<div class="item"><div class="txt" id="item9"></div></div>
+		<div class="item"><div class="txt" id="item8"></div></div>
+		<div class="item"><div class="txt" id="item7"></div></div>
+	</div>
+
+
+	<script type="text/javascript">
+		var box;
+		var timeId;
+		var time;
+		var spinCount;
+		function $id(id){
+			return document.getElementById(id);
+		}
+		function roller(){
+			box = 1;
+			time = 10;
+			$id('btn').disabled = true;
+			for(var i=1; i<=12; i++){
+				var item = "item" + i;
+				$id(item).innerHTML = "";
+				$id(item).style.backgroundColor = "white";
+			}
+			spinCount = 12 + (Math.floor(Math.random()*30));//至少繞一圈
+			console.log(spinCount);
+			repeat();
+		}
+		function repeat(){
+			timeId = setTimeout(changeColor,time);
+		}
+		function changeColor(){
+			var highlight = $id("item"+((box-1)%12+1));
+			var cancelHighlight = $id("item"+((box+10)%12+1));
+			highlight.style.backgroundColor = "yellow";
+			cancelHighlight.style.backgroundColor = "white";
+			box++;
+			console.log(box);
+			if(box > spinCount){
+				highlight.innerHTML = 1000 + Math.floor(Math.random()*10)*1000;
+				clearTimeout(timeId);
+				$id("btn").disabled = false;
+			}else{
+				time += 10;
+				repeat();
+			}
+		}
+		function init(){
+			$id('btn').onclick = roller;
+		}
+		window.onload = init;
+	</script>
+</body>
+</html>

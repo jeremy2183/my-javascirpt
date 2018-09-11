@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<h2>從前…</h2>	
+<script type="text/javascript">
+function greeting(name,word){
+	name = name || "Somebody";
+	word = word || "Hi~~~~~~";
+	var str = name + "說："+word;
+	document.write(str, "<br>");
+}
+greeting("Amy","Hi");
+greeting();
+
+</script>
+
+
+<h2>ES6</h2>
+<script type="text/javascript">
+function greeting2(name = "Somebody",word = "Hi~~~"){
+	var str = name + "說："+ word;
+	document.write(str, "<br>");
+}	
+greeting2("Amy","Hi");
+greeting2();
+</script>
+</body>
+</html>

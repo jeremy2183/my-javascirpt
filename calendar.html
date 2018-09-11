@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+<style type="text/css">
+	td {width:50px;
+	    text-align:center;}
+</style>
+</head>
+<body>
+<select name="mm" id="mm">
+	<option value="1">1月</option>
+	<option value="2">2月</option>
+	<option value="3">3月</option>
+	<option value="4">4月</option>
+	<option value="5">5月</option>
+	<option value="6">6月</option>
+	<option value="7">7月</option>
+	<option value="8">8月</option>
+	<option value="9">9月</option>
+	<option value="10">10月</option>
+	<option value="11">11月</option>
+	<option value="12">12月</option>
+</select>
+
+<div id="showPanel"></div>
+<script type="text/javascript">
+var  today = new Date();
+var yy = today.getFullYear();  //2018
+var mm = today.getMonth();  //11
+today.setDate(1); //1
+
+function getCalendar(yy,mm){ //mm:1~12
+	var dateObj = new Date(yy, mm-1, 1);
+	var firstDay = dateObj.getDay(); //星期幾	
+	days = 31;
+	switch( mm+1 ){
+		case 4:case 6:case 9:case 11:
+		  days=30;
+		  break;
+		case 2:
+		  //西元年份尾數 四的倍數為閏年  //2月29天
+	      //西元年份尾數 四百的倍數是閏年  //2月29天
+	      if(yy%400 == 0){
+	      	days = 29;
+	      }else if( yy%100==0){
+	      	days = 28;
+	      }else if( yy%4==0){
+	      	days = 29;
+	      }else{
+	      	days = 28;
+	      }
+		  
+	}
+
+	var str="<table border='1' cellspacing='0' align='center'>"
+	    str += "<tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr>" + "<tr>";
+	var count=0;
+	//要不要補前面的格位
+	for(var i=0; i<firstDay; i++){
+		str += "<td>&nbsp;</td>";
+		count++;
+	}
+	//印出所有的日期
+	for( var i=1; i<=days; i++){
+	  if( count%7 == 0 ){
+	  	str +="</tr><tr>";
+	  }
+	  str += "<td>" + i + "</td>";
+	  count++;
+	}
+	//要不要補後面的格位
+	var padding = 7 - count%7;
+	padding = padding==7?0:padding;
+
+	// var padding = count%7==0? 0 : 7-count%7 ;  
+	for( var i=1; i<= padding; i++){
+		str += "<td>&nbsp;</td>";
+	}
+	str += "</tr></table>";
+	return str;
+}
+
+function showCalendar(){
+
+	var yy = new Date().getFullYear();
+	var mm = document.getElementById("mm").value;
+	var str = getCalendar(yy,mm);
+	document.getElementById("showPanel").innerHTML = str;
+
+}
+window.onload=function (){
+	document.getElementById("mm").onchange=showCalendar;
+	document.getElementById("mm").selectedIndex=new Date().getMonth();
+	showCalendar();
+}
+
+</script>    
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>收藏我的最愛</title>
+</head>
+<body>
+<img src="setFavorite/snoopy_1.jpg" id="img1">
+<img src="setFavorite/heart_white.png" id="heart" title="加入收藏">
+
+<script type="text/javascript">
+	
+// function switchFavorite(){
+// 	var heart = document.getElementById("heart");
+// 	if(heart.title == "加入收藏"){
+//  	   heart.src="setFavorite/heart_red.png"
+//  	   heart.title="取消收藏";
+//  	}else{
+//  	   heart.src="setFavorite/heart_white.png"
+//  	   heart.title="加入收藏";
+//  	}
+// }
+
+// function init(){
+// 	document.getElementById("heart").onclick = switchFavorite;
+// }
+
+// window.onload=init;
+
+document.getElementById("heart").onclick = function switchFavorite(){
+	var heart = document.getElementById("heart");
+	if(heart.title == "加入收藏"){
+ 	   heart.src="setFavorite/heart_red.png"
+ 	   heart.title="取消收藏";
+ 	}else{
+ 	   heart.src="setFavorite/heart_white.png"
+ 	   heart.title="加入收藏";
+ 	}
+}
+</script>
+</body>
+</html>

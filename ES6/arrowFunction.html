@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+
+</head>
+<body>
+
+<script type="text/javascript">
+// ===0 具名函數
+function getArea(radius){
+	return radius*radius*3.14;
+}
+
+// ===1 匿名函數
+var getArea1 = function (radius){
+	return radius*radius*3.14;	
+}
+document.write("圓面積", getArea1(10), "<br>");
+
+//===2 可以改寫成箭頭函數
+//省略function關鍵字, 改用箭頭指向所需執行的敍述區塊
+var getArea2 = (radius) => {
+	return radius*radius*3.14;		
+}
+document.write("圓面積", getArea2(10), "<br>");
+
+//===3 箭頭函數的簡略寫法 
+//若只要執行一行敍述，且該敍述的目的是回傳一個值，
+//則{}和return可以省略
+var getArea3 = (radius) => radius*radius*3.14;		
+document.write("圓面積", getArea3(10), "<br>");
+
+//===4 箭頭函數的簡略寫法
+//參數列若只有一個參數，則左邊的()可以省略
+var getArea4 = radius => radius*radius*3.14;
+document.write("圓面積", getArea4(10), "<br>");
+
+//===5 箭頭函數的簡略寫法
+//若没有參數，則左邊的()不可以省略
+var greeting = (name, word) => `${name}說：${word} <br> `;
+document.write( greeting("思竺", "早安"));
+
+//===6 箭頭函數的簡略寫法(NG版)
+// 下列情形，只想傳回一個值，若只省略{}，没省略return 會產生error
+
+
+//===傳回物件
+var getPointObj = (x,y) => ({x,y});
+var point = getPointObj(100,100);
+document.write("x: ", point.x, "<br>");
+document.write("y: ", point.y, "<br>");
+
+//===參數預設值
+var greeting2 = ( name="Somebody", word="Hi~~~") => `${name} 說： ${word} <br>`;
+document.write( greeting2());
+document.write( greeting2("Ann", "您好"));
+
+//=== rest parameter
+var sum = (rate, ...arr)=>{
+	for( var i=0; i<arr.length; i++){
+	 arr[i] = arr[i] + arr[i] * rate;
+	}
+	return arr.toString();
+}
+
+document.write(sum(0.1,100,200,300));
+
+
+/*
+*/
+</script>    
+</body>
+</html>

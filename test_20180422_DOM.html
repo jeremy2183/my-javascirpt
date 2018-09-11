@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#aa{
+			width: 200px;
+			height: 50px;
+			display: inline-block;
+			border: 1px solid red;
+		}
+	</style>
+<script>
+function init(){
+	var a = "abc";
+	document.getElementById("aa").innerHTML = a;
+	
+}
+window.onload = init;
+</script>	
+</head>
+<body>
+
+<div id="dataDiv">
+<span id="dateSpan">&nbsp;</span>
+日期：<span id="aa"></span>
+</div>
+
+
+</body>
+</html>

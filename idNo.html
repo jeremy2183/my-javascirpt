@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+</head>
+<body>
+
+<input type="text" name="idNo" id="idNo">
+<input type="button" id="btn" value="檢查">
+
+<script type="text/javascript">
+function $id(id){
+	return document.getElementById(id);
+}	
+
+function isIdNo(idNo){  //A123456789
+	//檢查長度
+	if( idNo.length != 10){
+		return false;
+	}   
+  
+  	//檢查第一碼 a..z,A..Z
+  	var firstCode = idNo.charAt(0).toUpperCase();
+  	if( firstCode < 'A' || firstCode > 'Z' ){
+  		return false;
+  	}
+
+	//檢查第二碼 1,2
+    var secondCode = idNo.charAt(1);
+    if( secondCode !=1 && secondCode != 2){
+    	return false;
+    }
+
+  	//檢查第三碼之後的資料是否為數字
+    if( isNaN( idNo.substr(2,8))==true){
+    	return false;
+    }
+
+    //算出檢查碼
+    var cityCharStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  	var cityCodeArr = new Array(10,11,12,13,14,15,16,17,34,18,19,20,21,22,35,23,24,25,26,27,28,29,32,30,31,33);
+  	var temp = cityCodeArr[cityCharStr.indexOf(firstCode)]+"";
+  	var sum = temp.charAt(0)*1 + temp.charAt(1)*9;
+
+  	for( var i=1; i<=8; i++){
+  		sum += idNo.charAt(i) * (9-i);
+  	}
+  	var checkNum = 10-sum % 10;
+  	checkNum = checkNum==10 ? 0 : checkNum;
+  //比對	算出 的檢查碼是否和輸入的檢查碼一樣
+  if(checkNum == idNo.charAt(9)){
+  	return true;
+  }else{
+    return false;
+  }
+
+}
+
+function checkIdNum(){
+  var idNo = $id("idNo").value;
+  if(isIdNo( idNo )==true){
+  	alert("正確");
+  }else{
+  	alert("error")
+  }
+}
+
+window.onload=function (){
+	$id("btn").onclick=checkIdNum;
+}	
+</script>    
+</body>
+</html>

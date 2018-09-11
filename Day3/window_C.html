@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+</head>
+<body>
+
+<input type="button" id="btn" value="刪除" onclick="del();"><br>
+<input type="button" value="新聞" onclick="window.open('http://yahoo.tw');">
+<input type="button" value="列印" onclick="window.print();">
+
+<script type="text/javascript">
+function del(){
+	var psn = prompt("請輸入書號",99);
+	if( psn != null){
+		if( confirm("確定刪除書號" + psn + "嗎? ") == true){
+			location.href = "http://yahoo.tw";
+		}		
+	}
+
+}	
+</script>    
+</body>
+</html>

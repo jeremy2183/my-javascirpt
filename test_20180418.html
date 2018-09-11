@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>mouse event</title>
+</head>
+<body>
+<div id="showPanel"></div>
+<script type="text/javascript">
+// for( var i=10; i>0; i--){
+// 	document.getElementById("showPanel").innerHTML = i;
+// 	console.log( i );
+// }
+var a = 10;
+var b = 20;
+
+function sum(a,b){
+	var c = a+b;
+	return c;
+}
+var c = sum(a,b);
+document.write("總合：",c);
+
+</script>   
+
+
+<p>
+<a href="javascript:window.alert('Hi~~~');";>問候</a>
+<p>
+<input type="button" name="" value="100+200=?" onclick="window.alert(sum(100,200))">
+<p>
+<script type="text/javascript">
+var name,price,weight;
+name = "小玉";
+price = 30;
+weight = 6.6;
+
+total = price * weight;
+var payStatus = true;
+
+document.write("客戶：", name , "<br>");
+document.write("單價：", price , "<br>");
+document.write("重量：", weight , "<br>");
+document.write("總價：", total , "<br>");
+document.write("付款狀態：", payStatus , "<br>");
+</script>
+
+<p>
+總價 <input type="text" id="subTotal" value="200"  name="subTotal"><br>
+<h2>======錯誤</h2>
+
+<script type="text/javascript">
+var subTotal = document.getElementById("subTotal").value;
+var fee = 50;
+var Total = subTotal + fee;
+document.write("總價：", subTotal,"<br>");
+document.write("處理費用：", fee , "<br>");
+document.write("應付總額：", Total , "<br>");
+
+</script>
+<h2>======正確</h2>
+
+<script type="text/javascript">
+var subTotal = parseInt(document.getElementById("subTotal").value);
+var fee = 50;
+var Total = subTotal + fee;
+document.write("總價：", subTotal,"<br>");
+document.write("處理費用：", fee , "<br>");
+document.write("應付總額：", Total , "<br>");
+	
+</script>
+
+<h2>=====parseInt(資料，基底)</h2>
+<script>
+var subTotal = document.getElementById("subTotal").value;
+document.write("總價10：",parseInt(subTotal), "<br>");   
+document.write("總價16：",parseInt(subTotal, 16),"<br>");  //十六進位轉十進位
+document.write("總價8：",parseInt(subTotal, 8),"<br>");    //八進位轉十進位
+document.write("總價2：",parseInt(subTotal, 2),"<br>");    //二進位轉十進位
+</script>
+
+
+<h2>三元運算子</h2>
+
+<script>
+var avg = 86;
+document.write("考試結果：", avg>=60? "通過" : "再努力");
+
+</script>
+
+<h2>for...</h2>
+<script>
+var sum = 0;
+for(var i=1;i<=10;i++){
+	sum = sum + i;
+}
+document.write("1+2+3....+10 = ",sum);
+
+</script>
+
+<h2>while</h2>
+<script>
+var i=1;
+while(i<10){
+	document.write("I love Javascript","<br>")	;
+	i++;
+}
+
+</script>
+
+<h2>while 1+2+3+.....+50</h2>
+<script>
+var i=1;
+var total = 0;
+while(i<=50){
+	total = total + i;
+	i++;
+}
+document.write("總合：" ,total);
+
+</script>
+
+<h2>do...while</h2>
+<script>
+var i=1;
+do{
+	document.write("I Love Javascript","<br>");
+	i++;
+}while(i<=10)
+
+</script>
+
+<h2>印9次... 1 2 3 4 5 6 7 8 9 </h2>
+<script>
+for(var i=1; i<10; i++){
+	document.write("1 2 3 4 5 6 7 8 9","<br>");
+}
+
+</script>
+
+<h2>多重迴圈 nested loop</h2>
+<script>
+for(var i=1; i<=9; i++){
+	for(var j=1; j<=9; j++){
+		document.write(j,"&nbsp;&nbsp;");
+	}
+	document.write("<br>");
+}
+
+</script>
+
+<h2>多重迴圈 九九乘法表</h2>
+<script>
+for(var i=1; i<=9; i++){
+	for(var j=1; j<=9; j++){
+		document.write(i,"*",j,"=",i*j,"&nbsp;&nbsp;");
+	}
+	document.write("<br>");
+}
+</script>
+</body>
+</html>

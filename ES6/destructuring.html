@@ -16,9 +16,12 @@ document.write( "d: " , d , "<br>");
 
 
 var obj = {empno:"7839", ename:"King"};
-({empno, ename} = obj) ;
-document.write( "empno: " , empno , "<br>");
-document.write( "ename: " , ename , "<br>");
+({empno, ename} = obj);  //第1種方式
+document.write("empno:", empno,"<br>"); //第1種方式
+document.write("ename:", ename,"<br>"); //第1種方式
+
+// document.write("empno:", obj.empno,"<br>");  //第2種方式
+// document.write("ename:", obj.ename,"<br>");  //第2種方式 
 
 //rest parameter
 var numbers = new Array(11,22,33,44,55,66);
@@ -34,6 +37,20 @@ document.write( "sum: " , sum(1,2,3) , "<br>");
 
 var arr = new Array(100,200,300);
 document.write( "sum: " , sum(...arr) , "<br>"); //展開
+
+
+//解構後傳給參數 + 求和函數
+var temp = 0;
+function sum2(){
+	for(i in arguments){
+		temp += arguments[i];
+	}
+	return temp;
+}
+// document.write("sum2:", sum2(1,2,3), "<br>");
+
+var arr = new Array(100,200,300,400);
+document.write("sum2:" , sum2(...arr), "<br>");//展開
 
 </script>    
 </body>

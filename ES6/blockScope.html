@@ -8,22 +8,20 @@
 <body>
 <h2> var 有hoist的現象  </h2>  
 <script type="text/javascript">
-
-document.write('mm : ' , mm ,"<br>");
 var mm=10;
+document.write('mm : ' , mm ,"<br>");
 </script>
 
 
 <h2> let 没有hoist的現象  </h2>  
 <script type="text/javascript">
-document.write('nn：', nn , "<br>");
 let nn = 100;
+document.write('nn：', nn , "<br>");
 </script>
 
 <h2> var 可重複宣告  </h2>  
 <script type="text/javascript">
 var aa = 10;
-
 var aa = 100;
 document.write('aa：', aa , "<br>");
 </script>
